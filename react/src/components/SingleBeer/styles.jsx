@@ -1,8 +1,20 @@
 import styled from 'styled-components';
 
-export const StyledSingleBeer = styled.div`
+const StyledSingleBeer = styled.div`
+  box-sizing: border-box;
+  width: 40vw;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  height: 200px;
+
+  .div-img {
+    width: 100px;
+    margin-right: 30px;
+  }
+
+  .div-img img {
+    height: 100%;
+  }
 
   div {
     display: flex;
@@ -15,16 +27,13 @@ export const StyledSingleBeer = styled.div`
     padding: 0;
     margin: 0;
     color: black;
+    padding: 20px 0;
   }
 
   .description {
     color: lightgray;
     padding: 0;
     margin: 0;
-  }
-
-  .contributedBy {
-    
   }
 `;
 
