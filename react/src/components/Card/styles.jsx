@@ -6,6 +6,7 @@ const StyledCardLinked = styled(Link)`
   border: 1px solid lightgray;
   padding-bottom: 30px;
   text-decoration: none;
+  box-sizing: border-box;
 
   img {
     width: 100%;
