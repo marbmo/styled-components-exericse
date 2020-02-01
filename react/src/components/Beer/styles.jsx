@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const StyledBeer = styled.div`
   display: flex;
@@ -56,4 +56,21 @@ export const Paragraph = styled.p`
   font-weight: ${props => props.weight};
   color: ${props => props.color};
   font-size: ${props => props.size};
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Animation = styled.div`
+  display: inline-block;
+  animation: ${rotate} 2s linear infinite;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
 `;

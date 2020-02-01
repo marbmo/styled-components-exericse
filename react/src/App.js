@@ -75,8 +75,10 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route
             path='/beers'
-            render={() => {
-              return <Beers beers={this.state.beers} NavBar={NavBar} />;
+            render={props => {
+              return (
+                <Beers {...props} beers={this.state.beers} NavBar={NavBar} />
+              );
             }}
           />
           <Route

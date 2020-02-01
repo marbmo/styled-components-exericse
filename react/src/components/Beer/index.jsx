@@ -9,7 +9,8 @@ import {
   Date,
   Description,
   ContributedBy,
-  Paragraph
+  Paragraph,
+  Animation
 } from './styles';
 
 class Beer extends Component {
@@ -31,7 +32,7 @@ class Beer extends Component {
       <React.Fragment>
         <this.props.NavBar />
         {Object.entries(this.props.beer).length === 0 ? (
-          <p>Carregando</p>
+          <Animation>Carregando</Animation>
         ) : (
           <StyledBeer>
             <StyledImage
