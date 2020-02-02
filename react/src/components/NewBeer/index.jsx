@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Label, Input, TextArea, Button } from './styles';
 
+import AppContext from '../../context/AppContext';
+
 class NewBeer extends Component {
   state = {
     name: '',
@@ -20,16 +22,19 @@ class NewBeer extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.createBeer(this.state);
+    this.context.createNewBeer(this.state);
   };
 
   render() {
-    const NavBar = this.props.NavBar;
     return (
       <React.Fragment>
-        <NavBar />
+        <this.context.NavBar />
         <Form onSubmit={this.handleSubmit}>
-          {this.props.message !== '' ? <p>{this.props.message}</p> : ''}
+          {this.context.state.message !== '' ? (
+            <p>{this.context.state.message}</p>
+          ) : (
+            ''
+          )}
           <Label htmlFor='name'>Name</Label>
           <Input
             type='text'
@@ -91,5 +96,7 @@ class NewBeer extends Component {
     );
   }
 }
+
+NewBeer.contextType = AppContext;
 
 export default NewBeer;

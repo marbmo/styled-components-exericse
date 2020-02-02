@@ -1,5 +1,6 @@
 import React from 'react';
-import SingleListBeer from '../../components/SingleListBeer';
+import AppContext from '../../context/AppContext';
+import { SingleListBeer } from '../../components';
 
 class Beers extends React.Component {
   state = {
@@ -21,20 +22,16 @@ class Beers extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <this.props.NavBar />
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type='text'
-            name='search'
-            value={this.state.search}
-            onChange={this.handleSearch}
-          />
-        </form>
-        {this.props.beers.map(beer => {
-          return <SingleListBeer beer={beer} key={beer._id} />;
-        })}
-      </React.Fragment>
+      <AppContext.Consumer>
+        {context => (
+          <React.Fragment>
+            <context.NavBar />
+            {context.state.beers.map(beer => {
+              return <SingleListBeer beer={beer} key={beer._id} />;
+            })}
+          </React.Fragment>
+        )}
+      </AppContext.Consumer>
     );
   }
 }
